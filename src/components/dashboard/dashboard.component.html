@@ -1,0 +1,70 @@
+<div class="dashboard">
+    <div class="card-header">
+        <h1>Dashboard</h1>
+        <p>Last updated 16 Sep 2024, 10:24PM GMT+8</p>
+    </div>
+    <div class="card-content">
+        <div class="overview-item">
+            <p>Total emissions (tCO2e)</p>
+            <h2>45,000</h2>
+            <p class="red">12% higher than the previous year</p>
+        </div>
+        <div class="overview-item">
+            <p>Energy consumption (tCO2e)</p>
+            <h2>8,000</h2>
+            <p class="green">12% lower than the previous year</p>
+        </div>
+    </div>
+
+    <div class="overview-card">
+        <div class="emissions-summary">
+            <div class="card-header">
+                <h2>Emissions Summary</h2>
+                <div class="select-condition">
+                    <mat-form-field>
+                        <mat-label>All business unit</mat-label>
+                        <mat-select>
+                            @for (food of years; track food) {
+                            <mat-option [value]="food">{{food}}</mat-option>
+                            }
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Year</mat-label>
+                        <mat-select>
+                            @for (food of years; track food) {
+                            <mat-option [value]="food">{{food}}</mat-option>
+                            }
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <mat-card>
+                <div id="donutChartDiv" style="width: 500px; height: 400px;"></div>
+            </mat-card>
+        </div>
+
+        <div class="comparison">
+            <div class="card-header">
+                <h2>Compare to</h2>
+                <mat-form-field>
+                    <mat-label>Year</mat-label>
+                    <mat-select>
+                        @for (food of years; track food) {
+                        <mat-option [value]="food">{{food}}</mat-option>
+                        }
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <mat-list>
+                @for (message of messages; track message) {
+                  <mat-list-item>
+                    <h3 matListItemTitle>{{message.title}}</h3>
+                    <p matListItemLine>{{message.price}}</p>
+                    <p matListItemLine class="demo-2">{{message.content}}</p>
+                  </mat-list-item>
+                }
+              </mat-list>
+        </div>
+    </div>
+</div>
